@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 public class WhatsappRepository {
 
     //Assume that each user belongs to at most one group
-    //You can use the below mentioned hashmaps or delete these and create your own.
+    //You can use the belowmentioned hashmaps or delete these and create your own.
     private HashMap<Group, List<User>> groupUserMap;
     private HashMap<Group, List<Message>> groupMessageMap;
     private HashMap<Message, User> senderMap;
@@ -195,6 +195,4 @@ public class WhatsappRepository {
         });
         return filteredMessages.get(K-1).getContent();
     }
-}
-
 }
