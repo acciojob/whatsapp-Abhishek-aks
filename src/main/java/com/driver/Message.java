@@ -7,8 +7,9 @@ public class Message {
     private String content;
     private Date timestamp;
 
-    public Message() {
-    }
+    // constructor
+    public Message() {}
+
     public Message(int id, String content) {
         //since timestamp should be current date so won't be passed as parameters
         this.id = id;
@@ -17,11 +18,9 @@ public class Message {
     }
 
     // getter & Setter
-
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -29,7 +28,6 @@ public class Message {
     public String getContent() {
         return content;
     }
-
     public void setContent(String content) {
         this.content = content;
     }
@@ -37,7 +35,6 @@ public class Message {
     public Date getTimestamp() {
         return timestamp;
     }
-
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }

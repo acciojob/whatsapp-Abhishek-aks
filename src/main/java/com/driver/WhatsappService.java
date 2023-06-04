@@ -9,15 +9,13 @@ import java.util.List;
 
 @Service
 public class WhatsappService {
-    @Autowired
-    WhatsappRepository whatsappRepository;
+
+    WhatsappRepository whatsappRepository = new WhatsappRepository();
 
     public String createUser(String name, String mobile) throws Exception {
         //If the mobile number exists in database, throw "User already exists" exception
         //Otherwise, create the user and return "SUCCESS"
         return whatsappRepository.createUser(name,mobile);
-
-
     }
 
     public Group createGroup(List<User> users) {

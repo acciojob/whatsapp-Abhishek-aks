@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 public class WhatsappRepository {
 
     //Assume that each user belongs to at most one group
-    //You can use the belowmentioned hashmaps or delete these and create your own.
+    //You can use the below mentioned hashmaps or delete these and create your own.
     private HashMap<Group, List<User>> groupUserMap;
     private HashMap<Group, List<Message>> groupMessageMap;
     private HashMap<Message, User> senderMap;
@@ -16,8 +16,10 @@ public class WhatsappRepository {
     private HashSet<String> userMobile;
     private int customGroupCount;
     private int messageId;
+    private Map<String, User> userdb = new HashMap<>();        //just to check
 
-    public WhatsappRepository(){
+
+    public WhatsappRepository(){                                // no-args constructor
         this.groupMessageMap = new HashMap<Group, List<Message>>();
         this.groupUserMap = new HashMap<Group, List<User>>();
         this.senderMap = new HashMap<Message, User>();
@@ -33,9 +35,23 @@ public class WhatsappRepository {
         if(userMobile.contains(mobile)){
             throw new Exception("User already exists");
         }
+        // save the user to a database or perform other necessary actions
         userMobile.add(mobile);
-        User user = new User(name, mobile);
+
+        User user1 = new User(name, mobile);
+        userdb.put(mobile, user1);     //    just to check or to below lines except return
+
         return "SUCCESS";
+
+//        userMobile.add(mobile);
+//        User user1 = new User(name, mobile);
+//        Group group1 = new Group(name,1);
+//
+//        // Associate the user with the group
+//        List<User> users = groupUserMap.getOrDefault(group1, new ArrayList<>());
+//        users.add(user1);
+//        groupUserMap.put(group1, users);
+//        return "SUCCESS";
     }
 
     public Group createGroup(List<User> users){
